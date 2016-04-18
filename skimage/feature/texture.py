@@ -43,7 +43,8 @@ def greycomatrix(image, distances, angles, levels=256, symmetric=False,
         offset. The elements of the resulting matrix sum to 1. The
         default is False.
     clockwise : bool, optional
-        Defines if the angles will be considered clockwise or anti-clockwise. Default: True
+        Defines if the angles will be considered clockwise or anti-clockwise.
+        Default: True
 
     Returns
     -------
@@ -140,7 +141,7 @@ def greycoprops(P, prop='contrast'):
     - 'contrast': :math:`\\sum_{i,j=0}^{levels-1} P_{i,j}(i-j)^2`
     - 'correlation':
         .. math:: \\sum_{i,j=0}^{levels-1} P_{i,j}\\left[\\frac{(i-\\mu_i) \\
-                  (j-\\mu_j)}{\\sqrt{(\\sigma_i^2)(\\sigma_j^2)}}\\right]        
+                  (j-\\mu_j)}{\\sqrt{(\\sigma_i^2)(\\sigma_j^2)}}\\right]
     - 'cprominence': :math:`\\sum_{i,j=0}^{levels-1} P_{i,j}(i+j-\\mu_i-\\mu_j)^4`
     - 'cshade': :math:`\\sum_{i,j=0}^{levels-1} P_{i,j}(i+j-\\mu_i-\\mu_j)^3`
     - 'dissimilarity': :math:`\\sum_{i,j=0}^{levels-1} P_{i,j}|i-j|`
@@ -174,17 +175,17 @@ def greycoprops(P, prop='contrast'):
     ----------
     .. [1] The GLCM Tutorial Home Page,
            http://www.fp.ucalgary.ca/mhallbey/tutorial.htm
-           
+
     .. [2] R. M. Haralick, K. Shanmugan, and I. H. Dinstein,
         "Textural features for image classification,"
-        IEEE Trans. Syst., Man, Cybern., vol. SMC-3, pp. 610–621, May 1973.
+        IEEE Trans. Syst., Man, Cybern., vol. SMC-3, pp. 610-621, May 1973.
 
     .. [3] R. W. Conners, M. M. Trivedi, and C. A. Harlow,
         "Segmentation of a high-resolution urban scene using texture operators,"
-        Comput. Vision, Graph., Image Processing, vol. 25, pp. 273–310, 1984.
+        Comput. Vision, Graph., Image Processing, vol. 25, pp. 273-310, 1984.
 
     .. [4] R. M. Haralick, "Statistical and structural approaches to texture,"
-        Proc. IEEE, vol. 67, pp. 786–804, May 1979.
+        Proc. IEEE, vol. 67, pp. 786-804, May 1979.
 
     .. [5] Soh, L.-K.; Tsatsoulis, C.,
         "Texture analysis of SAR sea ice imagery using gray level co-occurrence matrices,"
@@ -226,7 +227,8 @@ def greycoprops(P, prop='contrast'):
         weights = 1. / (1. + np.abs(I - J))
     elif prop == 'autocorr':
         weights = I * J
-    elif prop in ['ASM', 'energy', 'correlation', 'cshade', 'cprominence', 'mean', 'entropy', 'variance', 'maxprob']:
+    elif prop in ['ASM', 'energy', 'correlation', 'cshade', 'cprominence',
+                  'mean', 'entropy', 'variance', 'maxprob']:
         pass
     else:
         raise ValueError('%s is an invalid property' % (prop))
