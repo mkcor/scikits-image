@@ -22,5 +22,6 @@ get_macpython_environment $MB_PYTHON_VERSION ~/venv
 # These cause conflicts in the update process and don't seem necessary
 brew uninstall postgis gdal
 brew upgrade libpng
+brew install gcc@10
 
 set +ex

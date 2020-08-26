@@ -7,6 +7,7 @@ touch $MPL_DIR/matplotlibrc
 
 if [[ $TRAVIS_OS_NAME == "osx" ]]; then
     echo 'backend : Template' > $MPL_DIR/matplotlibrc
+    eval "CC=gcc-10 && CXX=g++-10"
 fi
 
 section "List.installed.dependencies"
